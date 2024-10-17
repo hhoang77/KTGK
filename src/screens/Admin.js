@@ -22,7 +22,7 @@ function Admin({navigation}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://192.168.1.8:3007/product', {
+        const response = await axios.get('http://10.60.54.4:3007/product', {
           headers: {
             'Cache-Control': 'no-cache',
           },
@@ -43,7 +43,7 @@ function Admin({navigation}) {
     console.log(id);
 
     try {
-      await axios.delete(`http://192.168.1.8:3007/product/delete?id=${id}`);
+      await axios.delete(`http://10.60.54.4:3007/product/delete?id=${id}`);
       Alert.alert('Thành công', 'Sản phẩm đã được xóa');
       setData(data.filter(item => item._id !== id));
     } catch (error) {
@@ -59,7 +59,7 @@ function Admin({navigation}) {
 
   const handleUpdate = async updatedProduct => {
     try {
-      await axios.put(`http://192.168.1.8:3007/product/update`, updatedProduct);
+      await axios.put(`http://10.60.54.4:3007/product/update`, updatedProduct);
       Alert.alert('Thành công', 'Sản phẩm đã được cập nhật');
       setData(
         data.map(item =>

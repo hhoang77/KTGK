@@ -16,7 +16,7 @@ function Register() {
   const handleRegister = async () => {
     try {
       const response = await axios.post(
-        'http://192.168.1.8:3007/user/register',
+        'http://10.60.54.4:3007/user/register',
         {
           name,
           email,

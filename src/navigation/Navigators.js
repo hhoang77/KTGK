@@ -14,7 +14,7 @@ function Navigators() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Admin"
+        initialRouteName="Login"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />

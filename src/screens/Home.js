@@ -16,7 +16,7 @@ function Home({navigation}) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://192.168.1.8:3007/product', {
+        const response = await axios.get('http://10.60.54.4:3007/product', {
           headers: {
             'Cache-Control': 'no-cache',
           },

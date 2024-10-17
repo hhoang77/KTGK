@@ -36,11 +36,11 @@ function AddProduct({navigation}) {
     });
     formData.append('categoryId', categoryId);
 
-    setLoading(true); // Start loading
+    setLoading(true);
 
     try {
       const response = await axios.post(
-        'http://192.168.1.8:3007/product/create',
+        'http://10.60.54.4:3007/product/create',
         formData,
         {
           headers: {
@@ -60,7 +60,7 @@ function AddProduct({navigation}) {
       console.error('Error adding product:', error);
       Alert.alert('Lỗi', 'Có lỗi xảy ra khi thêm sản phẩm.');
     } finally {
-      setLoading(false); // Stop loading
+      setLoading(false);
     }
   };
 
@@ -76,9 +76,9 @@ function AddProduct({navigation}) {
       } else if (response.error) {
         console.log('ImagePicker Error: ', response.error);
       } else if (response.assets && response.assets.length > 0) {
-        const uri = response.assets[0].uri; // Lấy đường dẫn hình ảnh
+        const uri = response.assets[0].uri;
         console.log('Selected image URI:', uri);
-        setProductImage(uri); // Lưu đường dẫn vào trạng thái
+        setProductImage(uri);
       } else {
         console.log('No image selected');
       }
@@ -87,7 +87,6 @@ function AddProduct({navigation}) {
 
   return (
     <View style={styles.container}>
-      {/* Nút Back ở góc trái */}
       <TouchableOpacity
         style={styles.backButton}
         onPress={() => navigation.goBack()}>

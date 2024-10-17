@@ -13,21 +13,21 @@ function Login() {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false); // Trạng thái loading
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-    setLoading(true); // Bắt đầu loading
+    setLoading(true);
     try {
-      const response = await axios.post('http://192.168.1.8:3007/user/login', {
+      const response = await axios.post('http://10.60.54.4:3007/user/login', {
         email,
         password,
       });
 
       if (response.status === 200) {
         console.log('Đăng nhập thành công', response.data);
-        const userRole = response.data.content.role; // Lấy vai trò người dùng
+        const userRole = response.data.content.role;
+        console.log(response);
 
-        // Điều hướng dựa trên vai trò
         if (userRole === 'admin') {
           navigation.navigate('Admin'); // Điều hướng đến Admin
         } else {
